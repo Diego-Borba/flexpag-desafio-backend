@@ -46,7 +46,7 @@ public class PaymentController {
         return repository.findById(id).get().getStatus();
     }
 
-    // EFETUA O PAGAMENTO VERIFICANDO O SEU STATUS
+    // VERIFICA O STATUS E EFETUA O PAGAMENT
     @PutMapping("/payment/{id}/{status}")
     public Payment makePayment(@PathVariable Long id, @RequestBody Payment payment) {
         payment = repository.findById(id).get();
