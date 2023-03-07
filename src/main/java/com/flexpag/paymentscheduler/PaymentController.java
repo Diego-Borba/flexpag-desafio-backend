@@ -74,6 +74,9 @@ public class PaymentController {
     // DELETA O AGENDAMENTO PELO ID
     @DeleteMapping("/payment/{id}")
     public void deletePayment(@PathVariable Long id) {
+        Payment payment = repository.findById(id).get();
+        if (payment.getStatus().equals("pending")) {
         repository.deleteById(id);
+        }
     }
 }
